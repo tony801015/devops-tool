@@ -9,7 +9,8 @@ Only docker, avoid install on vm.
 docker build . -t devops-tool
 
 # Action
-docker run -n devops-tool -it devops-tool bash -c 'cat > /test.yaml' < test.yaml
+docker run --name devops-tool -dit ghcr.io/tony801015/devops-tool:main
+docker exec -i devops-tool bash -c 'cat > /test.yaml' < test.yaml
 docker exec -i devops-tool yamllint test.yaml
 
 # Clear
